@@ -57,13 +57,13 @@
         <div class="btn-cookies"> Aceitar!</div>
     </div>
     <script>
-        if (!localStorage.pureJavaScriptCookies) {
+        if (!localStorage.nomeDoSeuCookies) {
             document.querySelector(".box-cookies").classList.remove('hide');
         }
 
         const acceptCookies = () => {
             document.querySelector(".box-cookies").classList.add('hide');
-            localStorage.setItem("pureJavaScriptCookies", "accept");
+            localStorage.setItem("nomeDoSeuCookies", "accept");
         };
 
         const btnCookies = document.querySelector(".btn-cookies");
