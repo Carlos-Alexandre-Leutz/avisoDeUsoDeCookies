@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-cookies.hide {
+            display: none !important;
+        }
+        
+        .box-cookies {
+            position: fixed;
+            background: rgba(153, 153, 153, 0.795);
+            width: 90%;
+            z-index: 998;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            box-shadow: #333 5px 5px 5px;
+        }
+        
+        .box-cookies .msg-cookies,
+        .box-cookies .btn-cookies {
+            text-align: center;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 5px;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .box-cookies .btn-cookies {
+            background: #333;
+            cursor: pointer;
+            align-self: normal;
+            border-radius: 5px;
+            color: #fff;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .box-cookies {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-cookies hide">
+        <p class="msg-cookies">Este site usa cookies para garantir que você obtenha a melhor experiência. <a href="#">Política de Privacidade</a> </p>
+        <div class="btn-cookies"> Aceitar!</div>
+    </div>
+    <script>
+        if (!localStorage.pureJavaScriptCookies) {
+            document.querySelector(".box-cookies").classList.remove('hide');
+        }
+
+        const acceptCookies = () => {
+            document.querySelector(".box-cookies").classList.add('hide');
+            localStorage.setItem("pureJavaScriptCookies", "accept");
+        };
+
+        const btnCookies = document.querySelector(".btn-cookies");
+
+        btnCookies.addEventListener('click', acceptCookies);
+    </script>
+</body>
+
+</html>
